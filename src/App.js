@@ -1,8 +1,18 @@
+import { useColorMode } from "@chakra-ui/react";
 import AppLayout from "layout/AppLayout";
+import { useEffect } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 import routes from "router/routes";
 
 const App = () => {
+  //
+  const { colorMode, toggleColorMode } = useColorMode();
+  //
+  useEffect(() => {
+    if (colorMode === "light") {
+      toggleColorMode();
+    }
+  }, [colorMode, toggleColorMode]);
   //
   return (
     <Routes>
