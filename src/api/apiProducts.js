@@ -8,4 +8,12 @@ const getProducts = async () => {
   return data;
 };
 
-export { getProducts };
+const getProductDetails = async ({ queryKey }) => {
+  const id = queryKey?.[1];
+  const { data } = await instance.get(
+    BASE_URL_ADDRESS + "product/public/" + id
+  );
+  return data;
+};
+
+export { getProducts, getProductDetails };
